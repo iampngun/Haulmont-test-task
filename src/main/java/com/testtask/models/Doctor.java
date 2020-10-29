@@ -26,5 +26,10 @@ public class Doctor extends Model {
 	
 	public Doctor(){}
 	
-	
+	public Doctor(String name, String surname, String patronymic, String specialization) {
+		this.name = name;
+		this.surname = surname;
+		this.patronymic = patronymic;
+		this.specialization = specialization;
+	}
 }

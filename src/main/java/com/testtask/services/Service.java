@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.testtask.dao.ModelDAO;
 import com.testtask.models.Doctor;
+import com.testtask.models.Model;
 import com.testtask.models.Patient;
 import com.testtask.models.Prescription;
 import com.vaadin.flow.component.textfield.TextField;
@@ -43,19 +44,23 @@ public class Service {
 				modelDAO.saveModel(patient);
 				break;
 			case("doctor"):
-				
+				Doctor doctor = new Doctor(textField1.getValue(), textField2.getValue(), 
+						textField3.getValue(), textField4.getValue());
+				modelDAO.saveModel(doctor);
 				break;
 			case("prescription"):
-				
+				Prescription prescription = new Prescription(textField1.getValue(), Long.parseLong(textField2.getValue()), 
+						Long.parseLong(textField3.getValue()), textField4.getValue());
+				modelDAO.saveModel(prescription);
 				break;
 		}
 	};
 	
-	public void changeModel() {
-		
+	public void changeModel(Model model) {
+		modelDAO.updateModel(model);
 	};
 	
-	public void deleteModel() {
-		
+	public void deleteModel(Model model) {
+		modelDAO.deleteModel(model);
 	};
 }

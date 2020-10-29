@@ -1,5 +1,8 @@
 package com.testtask.models;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,4 +30,14 @@ public class Prescription extends Model {
 	private String priority;
 	
 	public Prescription(){}
+	
+	public Prescription(String description, Long patient, Long doctor, String priority) {
+		this.description = description;
+		this.patient = patient;
+		this.doctor = doctor;
+		SimpleDateFormat df = new SimpleDateFormat("yyyy MM dd");
+		this.creationDate = df.format(new Date());
+		this.validityDate = df.format(new Date().getTime() + 604800000);
+		this.priority = priority;
+	}
 }

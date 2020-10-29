@@ -25,8 +25,8 @@ create table prescriptions (
 	description varchar(256),
 	patient integer not null,
 	doctor integer not null,
-	creationDate date,
-	validityDate date,
+	creationDate varchar(100),
+	validityDate varchar(100),
 	priority varchar(100),
 	primary key(id)
 );
